@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+
+<suite name="Test_API_Suit">
+
+    <parameter name="useCloudEnv" value="false"/>
+    <parameter name="OS" value="catalina"/>
+    <parameter name="OS" value="Windows"/>
+    <!--        <parameter name="os_version" value="###"/>-->
+    <parameter name="os_version" value="Sierra"/>
+    <parameter name="cloudEnvName" value="browserStack"/>
+    <parameter name="os_version" value="10"/>
+    <parameter name="browserName" value="chrome"/>
+    <parameter name="browserVersion" value="86"/>
+    <parameter name="url" value="https://app.timecamp.com/third_party/api"/>
+
+    <test name="Time Camp API Testing ">
+        <classes>
+            <class name="timecamp_test.TimeCamp_TestClient_API">
+                                                <methods>
+                                                    <include name="testGetUserData"></include>
+                                                    <exclude name="testPostUserData"></exclude>
+                                                    <include name="testGetAllUsersData"></include>
+                                                    <include name="testGetUsersInformation"></include>
+                                                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
