@@ -19,8 +19,9 @@
         <classes>
             <class name="timecamp_test.TimeCamp_TestClient_API">
                                                 <methods>
-                                                    <include name="testGetUserData"></include>
-                                                    <exclude name="testPostUserData"></exclude>
+                                                    <include name="testGetUserDataStatusResponse"></include>
+                                                    <include name="testGetUserDataBodyResponse"></include>
+                                                    <include name="testPostUserData"></include>
                                                     <include name="testGetAllUsersData"></include>
                                                     <include name="testGetUsersInformation"></include>
                                                 </methods>

@@ -19,15 +19,20 @@ public class TimeCamp_TestClient_API {
         this.timeCamp_client_api = new TimeCamp_Client_API();
     }
 
+
     @Test(enabled = true)
-    public void testGetUserData() {
+    public void testGetUserDataStatusResponse() {
+        ValidatableResponse response = this.timeCamp_client_api.GET_USER_DATA();
+        response.assertThat().statusCode(200).log().all();
+    }
+
+    @Test(enabled = true)
+    public void testGetUserDataBodyResponse() {
         String id = "1844868";
         String email = "kramoun@gmail.com";
         ValidatableResponse response = this.timeCamp_client_api.GET_USER_DATA();
-        //response.assertThat().statusCode(200).body("xml.user_id.text()", equalTo(id)).log().all();
         String actual = response.extract().body().path("xml.user_id.text()");
         String actual1 = response.extract().body().path("xml.email.text()");
-
         Assert.assertEquals(actual1, email, "Failed Assertion ");
     }
 
@@ -58,7 +63,7 @@ public class TimeCamp_TestClient_API {
     public void testGetUsersInformation() {
         String usersData = "1844868";
         ValidatableResponse response = this.timeCamp_client_api.GET_USERS_INFORMATION();
-        response.assertThat().statusCode(200).body("xml.user_id.text()", equalTo(usersData));
+//        response.assertThat().statusCode(200).body("xml.user_id.text()", equalTo(usersData));
         String actual3 = response.extract().body().path("xml.user_id.text()");
         Assert.assertEquals(actual3, usersData, "Failed Assertion ");
     }
